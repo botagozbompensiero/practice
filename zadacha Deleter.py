@@ -24,6 +24,7 @@ class Person:
 
     def __del__(self):
         print(f'Goodbye, {self.name} {self.surname}, {self.level}')
+        input()
 
 
 
@@ -33,3 +34,4 @@ third = Person('yyy', 'oooo', 2)
 first.getInfo()
 second.getInfo()
 third.getInfo()
+second.__del__()
