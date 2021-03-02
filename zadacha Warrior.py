@@ -26,10 +26,13 @@ Warrior_2 = Warrior()
 Warrior_1.setName('Judy')
 Warrior_2.setName('Mila')
 
+# input()
 while Warrior_1.health != 0 and Warrior_2.health != 0:
     rand = random.randint(1, 3)
     if rand == 1:
         Warrior.battle(Warrior_1, Warrior_2)
+        # input()
     if rand == 2:
         Warrior.battle(Warrior_2, Warrior_1)
+        # input()
 
