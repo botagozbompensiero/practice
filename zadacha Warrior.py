@@ -14,7 +14,7 @@ class Warrior:
     def battle(self, other):
         if self.health > 0:
             self.health = self.health - 20
-            print(f'{self.name}"s health is {self.health}. Napadal {other.name}')
+            print(f"{self.name}'s health is {self.health}. Napadal {other.name}")
         if self.health == 0:
             print(f'{other.name} is the winner')
         if other.health == 0:
