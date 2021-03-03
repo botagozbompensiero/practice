@@ -1,13 +1,19 @@
-# Есть класс "Воин". От него создаются два экземпляра-юнита.
-# Каждому устанавливается здоровье в 100 очков.
-# В случайном порядке они бьют друг друга. Тот, кто бьет, здоровья не теряет.
-# У того, кого бьют, оно уменьшается на 20 очков от одного удара.
-# После каждого удара надо выводить сообщение, какой юнит атаковал, и сколько у противника осталось здоровья.
-# Как только у кого-то заканчивается ресурс здоровья, программа завершается сообщением о том, кто одержал победу.
+"""
+
+Есть класс "Воин". От него создаются два экземпляра-юнита.
+Каждому устанавливается здоровье в 100 очков.
+В случайном порядке они бьют друг друга. Тот, кто бьет, здоровья не теряет.
+У того, кого бьют, оно уменьшается на 20 очков от одного удара.
+После каждого удара надо выводить сообщение, какой юнит атаковал, и сколько у противника осталось здоровья.
+Как только у кого-то заканчивается ресурс здоровья, программа завершается сообщением о том, кто одержал победу.
+
+"""
+import random
+
 
 class Warrior:
 
-    def setName(self, n):
+    def __init__(self, n):
         self.name = n
         self.health = 100
 
@@ -20,19 +26,16 @@ class Warrior:
         if other.health == 0:
             print(f'{self.name} is the winner')
 
+    @staticmethod
+    def start_battle():
+        while Warrior_1.health != 0 and Warrior_2.health != 0:
+            rand = random.randint(1, 3)
+            if rand == 1:
+                Warrior.battle(Warrior_1, Warrior_2)
+            if rand == 2:
+                Warrior.battle(Warrior_2, Warrior_1)
 
-Warrior_1 = Warrior()
-Warrior_2 = Warrior()
-Warrior_1.setName('Judy')
-Warrior_2.setName('Mila')
 
-# input()
-while Warrior_1.health != 0 and Warrior_2.health != 0:
-    rand = random.randint(1, 3)
-    if rand == 1:
-        Warrior.battle(Warrior_1, Warrior_2)
-        # input()
-    if rand == 2:
-        Warrior.battle(Warrior_2, Warrior_1)
-        # input()
-
+Warrior_1 = Warrior('Judy')
+Warrior_2 = Warrior('Mila')
+Warrior.start_battle()
